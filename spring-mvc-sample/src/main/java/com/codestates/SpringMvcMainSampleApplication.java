@@ -8,17 +8,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.time.LocalTime;
 
 @Slf4j
 @SpringBootApplication
-public class SpringMvcSampleApplication {
+public class SpringMvcMainSampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringMvcSampleApplication.class, args);
+		SpringApplication.run(SpringMvcMainSampleApplication.class, args);
 	}
 
 	@Bean
