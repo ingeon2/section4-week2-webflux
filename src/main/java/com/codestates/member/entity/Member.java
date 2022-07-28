@@ -1,19 +1,14 @@
 package com.codestates.member.entity;
 
-import com.codestates.order.entity.Order;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -38,11 +33,6 @@ public class Member {
     @Column("last_modified_at")
     private LocalDateTime modifiedAt;
 
-    @Transient
-    private List<Order> orders = new ArrayList<>();
-
-    private int stampCount;
-
     public Member(String email) {
         this.email = email;
     }
@@ -51,13 +41,6 @@ public class Member {
         this.email = email;
         this.name = name;
         this.phone = phone;
-    }
-
-    public void setOrder(Order order) {
-        orders.add(order);
-        if (order.getMember() != this) {
-            order.setMember(this);
-        }
     }
     public enum MemberStatus {
         MEMBER_ACTIVE("활동중"),

@@ -1,10 +1,8 @@
 package com.codestates.member.controller;
 
 import com.codestates.member.dto.MemberDto;
-import com.codestates.member.entity.Member;
 import com.codestates.member.mapper.MemberMapper;
 import com.codestates.member.service.MemberService;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -69,5 +67,11 @@ public class MemberController {
                         .map(pageMember -> mapper.membersToMemberResponses(pageMember.getContent()));
 
         return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{member-id}")
+    public ResponseEntity deleteMember(@PathVariable("member-id") long memberId) {
+        Mono<Void> result = memberService.deleteMember(memberId);
+        return new ResponseEntity(result, HttpStatus.NO_CONTENT);
     }
 }

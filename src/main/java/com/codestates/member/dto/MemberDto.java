@@ -1,7 +1,7 @@
 package com.codestates.member.dto;
 
 import com.codestates.member.entity.Member;
-import com.codestates.member.validator.NotSpace;
+import com.codestates.validator.NotSpace;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 
 public class MemberDto {
     @Getter
-    @AllArgsConstructor // TODO 테스트를 위해 추가됨
+    @AllArgsConstructor
     public static class Post {
         @NotBlank
         @Email
@@ -54,7 +54,6 @@ public class MemberDto {
         private String name;
         private String phone;
         private Member.MemberStatus memberStatus;
-        private int stampCount;
 
         public String getMemberStatus() {
             return memberStatus.getStatus();
