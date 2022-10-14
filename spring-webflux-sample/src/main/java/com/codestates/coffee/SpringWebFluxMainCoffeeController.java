@@ -16,7 +16,7 @@ public class SpringWebFluxMainCoffeeController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{coffee-id}")
-    public Mono<CoffeeResponseDto> getCoffee(@PathVariable("coffee-id") long coffeeId) throws InterruptedException {
+    public Mono<CoffeeResponseDto> getCoffee(@PathVariable("coffee-id") long coffeeId) {
         log.info("# call Spring WebFlux Main Controller: {}", LocalDateTime.now());
         return WebClient.create()
                 .get()
