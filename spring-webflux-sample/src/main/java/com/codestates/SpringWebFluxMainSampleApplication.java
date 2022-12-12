@@ -39,6 +39,7 @@ public class SpringWebFluxMainSampleApplication {
 	private Mono<CoffeeResponseDto> getCoffee() {
 		String uri = "http://localhost:6060/v11/coffees/1";
 
+		// RestTemplate
 		return WebClient.create()
 				.get()
 				.uri(uri)
