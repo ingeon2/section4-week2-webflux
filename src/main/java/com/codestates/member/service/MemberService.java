@@ -35,7 +35,7 @@ public class MemberService {
         return verifyExistEmail(member.getEmail())
                 .then(memberRepository.save(member))
                 .map(resultMember -> {
-                    // Stamp 저장
+                    // Stamp 저장 TODO 조금 더 깔끔한 방법으로 코드 개선 해보기
                     template.insert(new Stamp(resultMember.getMemberId())).subscribe();
 
                     return resultMember;

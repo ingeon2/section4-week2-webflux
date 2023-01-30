@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +15,11 @@ import java.time.LocalTime;
 @Slf4j
 @SpringBootApplication
 public class SpringMvcMainSampleApplication {
+	private final RestTemplate restTemplate;
+
+	public SpringMvcMainSampleApplication(RestTemplateBuilder restTemplateBuilder) {
+		this.restTemplate = restTemplateBuilder.build();
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMvcMainSampleApplication.class, args);
@@ -32,7 +38,6 @@ public class SpringMvcMainSampleApplication {
 	}
 
 	private CoffeeResponseDto getCoffee() {
-		RestTemplate restTemplate = new RestTemplate();
 		String uri = "http://localhost:8080/v11/coffees/1";
 		ResponseEntity<CoffeeResponseDto> response = restTemplate.getForEntity(uri, CoffeeResponseDto.class);
 
