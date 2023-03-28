@@ -44,3 +44,7 @@ public class SpringMvcMainSampleApplication {
 		return response.getBody();
 	}
 }
+
+//메인 애플리케이션 Controller(SpringMvcMainCoffeeController)의 getCoffee() 핸들러 메서드를 호출하는 클라이언트를 구현한 코드
+//(원래는) 서비스와 리파지토리 로직을 사용해서 핸들러매서드 사용하는데, 여기는 간단구현을 위해 없으니.
+//우리가 PostMan에서 하던 로직을 여기서 행하는것.
