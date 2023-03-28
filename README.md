@@ -41,3 +41,4 @@ Spring WebFlux는 Spring MVC 방식의
 Spring WebFlux는 1차로 요청을 수신한 애플리케이션에서  
 외부 애플리케이션에 요청을 추가적으로 전달할 때 1차로 요청을 수신한 애플리케이션의 요청 처리 쓰레드가 Blocking 되지 않는다.  
 
+https://velog.io/@shinmj1207/Spring-Webflux-1-  
