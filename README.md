@@ -24,7 +24,7 @@ RestTemplate이 Blocking 방식의 Rest Client인 반명에 WebClient는 Non-Blo
   
   
 웹플럭스는 실행시키면 6초걸림. 똑같이 쓰레드.슬립이 존재하는데도.  
-왜그럴까?  
+왜그럴까?(쓰레드 비동기와 논블로킹의 차이)  
 메인 애플리케이션의 Controller가 요청을 1차로 수신한 시간을 보면 밀리초 단위는 조금 다르지만 초 단위는 동일한것을 확인.  
 외부 애플리케이션의 Controller에서 Thread.sleep(5000)으로 지연 시간을 주었다고 해서  
 메인 애플리케이션 Controller의 요청 처리 쓰레드가 Blocking 되지 않는 다는 것을 의미.  
